@@ -52,31 +52,21 @@ class AssociationController extends Controller
 
     public function logginAssoc(Request $request){
 
-        // $associations= Association::all();
-
-        // foreach($associations as $association){
-        //     if($association->email===$request->email){
-        //         if(Hash::check($request->password,$association->password)===true){
-        //             Auth::login($association);
-        //             $request->session()->regenerate();
-        //             // dd($request->session()->all());
-        //             return redirect()->intended("dashboard");
-        //         }
-        //     }
-        // }
-
         $credentials= $request->validate([
             "email"=>["required","email"],
             "password"=>["required"],
         ]);
 
-        if(Auth::attempt($credentials)){
-            $request->session()->regenerate();
-
-            return redirect()->intended("PageAssociation");
-            // return redirect("/PageAssociation");
+        $test=auth()->guard("association")->attempt($credentials);
+      
+        if($test){
+            return view("association.dashboard");
         }
+
+       
     }
+
+   
 
     /**
      * Display the specified resource.

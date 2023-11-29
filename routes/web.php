@@ -48,11 +48,10 @@ Route::get('/formulaireConnexionAssociation', [AssociationController::class,"ind
 Route::post('/connextionAssoc', [AssociationController::class,"logginAssoc"]);
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get("/PageAssociation", function () {
-        return "je suis connecté";
-    });
-});
+// Route::middleware(['auth'])->group(function () {
+    
+// });
+// Route::get("/PageAssociation",[AssociationController::class,"dashboard"]);
 
 
 require __DIR__.'/auth.php';
