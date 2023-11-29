@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssociationController;
+use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,10 @@ Route::get('/formulaireConnexionAssociation', [AssociationController::class,"ind
 
 Route::post('/connextionAssoc', [AssociationController::class,"logginAssoc"]);
 
+
+Route::get('/ajouterEvenement', [EvenementController::class,"create"]);
+
+Route::post("/ajouterEvenement",[EvenementController::class,"store"]);
 
 // Route::middleware(['auth'])->group(function () {
     

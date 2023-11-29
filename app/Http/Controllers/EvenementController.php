@@ -20,7 +20,7 @@ class EvenementController extends Controller
      */
     public function create()
     {
-        //
+        return view("association.ajoutEvenement");
     }
 
     /**
@@ -28,7 +28,28 @@ class EvenementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'libelle' => 'required|string|max:255',
+            'dateLimite' => 'required|date',
+            'description' => 'required|string',
+            'image' => 'required|string',
+            'cloturer' => 'required|in:oui,non',
+            'dateEvenement' => 'required|date',
+        ];
+
+        $request->validate($rules);
+
+        $evenement= new Evenement();
+        $evenement->libelle= $request->libelle;
+        $evenement->image_mise_en_avant= $request->image;
+        $evenement->description= $request->description;
+        $evenement->date_limite_inscription= $request->dateLimite;
+        $evenement->est_cloturer= $request->cloturer;
+        $evenement->date_evenement= $request->dateEvenement; 
+        $evenement->association_id= 1; 
+        $evenement->save();
+           
+    
     }
 
     /**
