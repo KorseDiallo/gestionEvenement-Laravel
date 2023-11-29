@@ -9,14 +9,15 @@
 </head>
 <h1>Connexion</h1>
 <body class="d-flex justify-content-center align-items-center vh-100">
-    <form class="p-3 border rounded">
+    <form method="POST" action="/connextionAssoc" class="p-3 border rounded">
+        @csrf
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="password">
+            <input type="password" class="form-control" name="password" id="password">
         </div>
         
         <button type="submit" class="btn btn-primary ">Se Connecter</button>

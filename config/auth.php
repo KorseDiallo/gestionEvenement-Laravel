@@ -63,6 +63,8 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+            // ajout
+            'model' => App\Models\Association::class,
         ],
 
         // 'users' => [

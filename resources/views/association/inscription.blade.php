@@ -9,26 +9,31 @@
 </head>
 <h1>Inscription</h1>
 <body class="d-flex justify-content-center align-items-center vh-100">
-    <form class="p-3 border rounded">
+    <form method="POST" action="/formulaireInscriptionAssociation" class="p-3 border rounded">
+        @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="prenom" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="prenom" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="telephone" class="form-label">Téléphone</label>
-            <input type="tel" class="form-control" id="telephone" aria-describedby="emailHelp">
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="password">
+            <input type="password" class="form-control" name="password" id="password">
+        </div>
+        <div class="mb-3">
+            <label for="prenom" class="form-label">slogan</label>
+            <input type="text" class="form-control" name="slogan" id="prenom" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="telephone" class="form-label">Logo</label>
+            <input type="tel" class="form-control" name="logo" id="telephone" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="telephone" class="form-label">Date Creation</label>
+            <input type="date" class="form-control" name="datecreation" id="telephone" aria-describedby="emailHelp">
         </div>
         
         <button type="submit" class="btn btn-primary ">Enregistrer</button>

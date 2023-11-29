@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,14 +37,22 @@ Route::get('/accueilAssociation', function () {
     return view('association.accueilAssociation');
 });
 
-Route::get('/formulaireInscriptionAssociation', function () {
-    return view('association.inscription');
-});
 
-Route::get('/formulaireConnexionAssociation', function () {
-    return view('association.connexion');
-});
 
+Route::get('/formulaireInscriptionAssociation', [AssociationController::class,"create"]);
+
+Route::post('/formulaireInscriptionAssociation', [AssociationController::class,"store"]);
+
+Route::get('/formulaireConnexionAssociation', [AssociationController::class,"index"]);
+
+Route::post('/connextionAssoc', [AssociationController::class,"logginAssoc"]);
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get("/PageAssociation", function () {
+        return "je suis connecté";
+    });
+});
 
 
 require __DIR__.'/auth.php';

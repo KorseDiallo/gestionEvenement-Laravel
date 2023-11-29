@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Association;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AssociationController extends Controller
 {
@@ -12,7 +14,7 @@ class AssociationController extends Controller
      */
     public function index()
     {
-        //
+        return view('association.connexion');
     }
 
     /**
@@ -20,7 +22,7 @@ class AssociationController extends Controller
      */
     public function create()
     {
-        //
+        return view('association.inscription');
     }
 
     /**
@@ -28,7 +30,52 @@ class AssociationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'prenom' => ['required', 'string', 'max:255'],
+        //     'telephone' => ['required', 'string', 'max:10'],
+        //     'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        //     'password' => ['required', 'string', 'max:10'],
+           
+        // ]);
+
+        $association = Association::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'slogan' => $request->slogan,
+            'logo' => $request->logo,
+            'dateCreation' => $request->datecreation,
+           
+        ]);
+    }
+
+    public function logginAssoc(Request $request){
+
+        // $associations= Association::all();
+
+        // foreach($associations as $association){
+        //     if($association->email===$request->email){
+        //         if(Hash::check($request->password,$association->password)===true){
+        //             Auth::login($association);
+        //             $request->session()->regenerate();
+        //             // dd($request->session()->all());
+        //             return redirect()->intended("dashboard");
+        //         }
+        //     }
+        // }
+
+        $credentials= $request->validate([
+            "email"=>["required","email"],
+            "password"=>["required"],
+        ]);
+
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+
+            return redirect()->intended("PageAssociation");
+            // return redirect("/PageAssociation");
+        }
     }
 
     /**
