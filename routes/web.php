@@ -53,6 +53,8 @@ Route::get('/ajouterEvenement', [EvenementController::class,"create"]);
 
 Route::post("/ajouterEvenement",[EvenementController::class,"store"]);
 
+
+
 // Route::middleware(['auth'])->group(function () {
     
 // });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Association;
 use App\Models\Evenement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,7 @@ class EvenementController extends Controller
      */
     public function index()
     {
-        //
+        //   
     }
 
     /**
@@ -33,16 +34,24 @@ class EvenementController extends Controller
             'libelle' => 'required|string|max:255',
             'dateLimite' => 'required|date',
             'description' => 'required|string',
-            'image' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'cloturer' => 'required|in:oui,non',
             'dateEvenement' => 'required|date',
         ];
+
+        $fileName = time() . "." . $request->image->extension();
+        $image= $request->image->storeAs(
+            'images',
+            $fileName,
+            'public'
+        );
+        // dd($image);
 
         $request->validate($rules);
 
         $evenement= new Evenement();
         $evenement->libelle= $request->libelle;
-        $evenement->image_mise_en_avant= $request->image;
+        $evenement->image_mise_en_avant= $image;
         $evenement->description= $request->description;
         $evenement->date_limite_inscription= $request->dateLimite;
         $evenement->est_cloturer= $request->cloturer;

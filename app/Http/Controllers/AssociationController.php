@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Association;
+use App\Models\Evenement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -60,7 +61,9 @@ class AssociationController extends Controller
         $test=auth()->guard("association")->attempt($credentials);
       
         if($test){
-            return view("association.dashboard");
+            $evenements= Evenement::all();
+            // dd($evenements);
+            return view("association.dashboard",compact("evenements"));
         }
 
        

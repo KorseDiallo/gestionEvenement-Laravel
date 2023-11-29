@@ -21,7 +21,7 @@
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                <form method="POST" action="/ajouterEvenement">
+                <form method="POST" action="/ajouterEvenement" enctype="multipart/form-data">
                     @csrf
                     <div>
                         <label for="email" class="block text-sm font-medium leading-5  text-gray-700">Libelle</label>
