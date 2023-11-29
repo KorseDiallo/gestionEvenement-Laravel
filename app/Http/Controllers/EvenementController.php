@@ -91,6 +91,7 @@ class EvenementController extends Controller
      */
     public function destroy(Evenement $evenement)
     {
-        //
+        // dd('ok');
+        $evenement->delete();
     }
 }

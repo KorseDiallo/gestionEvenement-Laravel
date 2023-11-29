@@ -53,6 +53,7 @@ Route::get('/ajouterEvenement', [EvenementController::class,"create"]);
 
 Route::post("/ajouterEvenement",[EvenementController::class,"store"]);
 
+Route::get('/supprimerEvenement/{evenement}', [EvenementController::class,"destroy"]);
 
 
 // Route::middleware(['auth'])->group(function () {
