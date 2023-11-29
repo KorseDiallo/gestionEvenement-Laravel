@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evenement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EvenementController extends Controller
 {
@@ -46,7 +47,7 @@ class EvenementController extends Controller
         $evenement->date_limite_inscription= $request->dateLimite;
         $evenement->est_cloturer= $request->cloturer;
         $evenement->date_evenement= $request->dateEvenement; 
-        $evenement->association_id= 1; 
+        $evenement->association_id= Auth::guard("association")->id(); 
         $evenement->save();
            
     
