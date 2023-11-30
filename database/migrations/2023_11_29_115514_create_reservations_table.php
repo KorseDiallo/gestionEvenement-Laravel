@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->primary(["user_id", "evenement_id"]);
+            $table->string("reference");
             $table->unsignedBigInteger("user_id");
             $table->foreign("user_id")->references("id")->on("users");
             $table->unsignedBigInteger("evenement_id");
             $table->foreign("evenement_id")->references("id")->on("evenements");
-            $table->string("dateReservation");
+            $table->enum('est_reserver', ['oui', 'non'])->default('oui');
             $table->unsignedBigInteger("nombreReservation");
             $table->timestamps();
         });

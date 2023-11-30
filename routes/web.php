@@ -3,6 +3,8 @@
 use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservationController;
+use App\Models\Evenement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +23,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('client.dashboard');
+    $evenements= Evenement::all();
+    return view('client.dashboard',compact('evenements'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -58,6 +61,8 @@ Route::get('/supprimerEvenement/{evenement}', [EvenementController::class,"destr
 Route::get('/modifierEvenement/{evenement}', [EvenementController::class,"edit"]);
 
 Route::post('/modifierEvenement/{evenement}', [EvenementController::class,"update"]);
+
+Route::get('/faireReservation/{evenement}',[ReservationController::class,"create"]);
 
 
 // Route::middleware(['auth'])->group(function () {
