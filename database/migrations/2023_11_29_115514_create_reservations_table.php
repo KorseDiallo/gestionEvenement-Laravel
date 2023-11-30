@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger("user_id");
             $table->foreign("user_id")->references("id")->on("users");
             $table->unsignedBigInteger("evenement_id");
-            $table->foreign("evenement_id")->references("id")->on("evenements");
+            $table->foreign("evenement_id")->references("id")->on("evenements")->onDelete("cascade");
             $table->enum('est_reserver', ['oui', 'non'])->default('oui');
             $table->unsignedBigInteger("nombreReservation");
             $table->timestamps();
