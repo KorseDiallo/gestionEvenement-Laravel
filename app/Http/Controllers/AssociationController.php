@@ -69,8 +69,10 @@ class AssociationController extends Controller
         $test=auth()->guard("association")->attempt($credentials);
       
         if($test){
-            $evenements= Evenement::all();
-            // dd($evenements);
+           
+            $associationId = Auth::guard("association")->id();
+            $evenements= Evenement::where("association_id",$associationId)->get();
+    
             return view("association.dashboard",compact("evenements"));
         }
 
