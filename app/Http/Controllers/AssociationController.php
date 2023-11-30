@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Association;
 use App\Models\Evenement;
 use App\Models\Reservation;
+use App\Notifications\EmailRefusReservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -91,6 +92,9 @@ class AssociationController extends Controller
         $reservation->est_reserver="non";
 
         $reservation->update();
+        $reservation->user->notify(new EmailRefusReservation());
+
+        // redirect en bas 
     }
 
     public function voirListeDecliner(){

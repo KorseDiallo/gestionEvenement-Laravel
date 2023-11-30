@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evenement;
 use App\Models\Reservation;
+use App\Notifications\EmailReservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,6 +45,8 @@ class ReservationController extends Controller
         $reservation->nombreReservation=$request->nombre_de_place;
 
         $reservation->save();
+        $reservation->user->notify(new EmailReservation());
+        //en bas le redirect
     }
 
     /**
