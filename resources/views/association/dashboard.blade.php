@@ -32,8 +32,8 @@
                 <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                     <li><a class="md:p-4 py-3 px-0 block" href="/ajouterEvenement">Ajouter Un Evenement</a></li>
                     <li><a class="md:p-4 py-3 px-0 block" href="/declinerReservation">Liste Inscrits</a></li>
-                    <li><a class="md:p-4 py-3 px-0 block" href="#">Liste Accepter</a></li>
-                    <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="#">Contact Us</a></li>
+                    <li><a class="md:p-4 py-3 px-0 block" href="/voirListeDecliner">Liste Decliner</a></li>
+                    <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="#">Deconnexion</a></li>
                 </ul>
             </nav>
         </div>
@@ -93,6 +93,11 @@
                                 Modifier
                             </button>
                             </a>
+                            <a href="/cloturer/{{$evenement->id}}">
+                                <button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                    Cloturer
+                                </button>
+                                </a>
                             <a href="/supprimerEvenement/{{$evenement->id}}">
                             <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                 Supprimer

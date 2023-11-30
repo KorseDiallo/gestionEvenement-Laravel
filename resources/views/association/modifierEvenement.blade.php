@@ -53,19 +53,6 @@
                         <img src="{{ Storage::url($evenement->image_mise_en_avant) }}" alt="Image Mise en Avant" style="width: 50px;">
                         @endif
                     </div>
-
-                    <div>
-                        <label for="name" class="block text-sm font-medium leading-5 text-gray-700">Cloturer</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                            <select id="name" name="cloturer" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                <option>Selectionner</option>
-                                <option value="oui" {{ $evenement->est_cloturer == 'oui' ? 'selected' : '' }}>Oui</option>
-                                <option value="non" {{ $evenement->est_cloturer == 'non' ? 'selected' : '' }}>Non</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-
                     <div>
                         <label for="email" class="block text-sm font-medium leading-5  text-gray-700">Date Evenement</label>
                         <div class="mt-1 relative rounded-md shadow-sm">

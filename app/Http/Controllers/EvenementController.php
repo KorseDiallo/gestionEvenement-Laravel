@@ -35,7 +35,6 @@ class EvenementController extends Controller
             'dateLimite' => 'required|date',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'cloturer' => 'required|in:oui,non',
             'dateEvenement' => 'required|date',
         ];
 
@@ -54,7 +53,6 @@ class EvenementController extends Controller
         $evenement->image_mise_en_avant= $image;
         $evenement->description= $request->description;
         $evenement->date_limite_inscription= $request->dateLimite;
-        $evenement->est_cloturer= $request->cloturer;
         $evenement->date_evenement= $request->dateEvenement; 
         $evenement->association_id= Auth::guard("association")->id(); 
         $evenement->save();
@@ -89,7 +87,6 @@ class EvenementController extends Controller
             'dateLimite' => 'required|date',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'cloturer' => 'required|in:oui,non',
             'dateEvenement' => 'required|date',
         ];
 
@@ -106,7 +103,6 @@ class EvenementController extends Controller
         $evenement->image_mise_en_avant= $image;
         $evenement->description= $request->description;
         $evenement->date_limite_inscription= $request->dateLimite;
-        $evenement->est_cloturer= $request->cloturer;
         $evenement->date_evenement= $request->dateEvenement; 
         $evenement->association_id= Auth::guard("association")->id(); 
 
@@ -121,5 +117,11 @@ class EvenementController extends Controller
     {
         // dd('ok');
         $evenement->delete();
+    }
+
+    public function cloturer(Evenement $evenement){
+        $evenement->est_cloturer="oui";
+
+        $evenement->update();
     }
 }

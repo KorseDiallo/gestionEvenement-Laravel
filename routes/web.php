@@ -55,6 +55,8 @@ Route::get('/declinerReservation',[AssociationController::class,"declinerReserva
 
 Route::get('/declineReservation/{reservation}',[AssociationController::class,"declineReservation"]);
 
+Route::get('/voirListeDecliner',[AssociationController::class,"voirListeDecliner"]);
+
 Route::get('/ajouterEvenement', [EvenementController::class,"create"]);
 
 Route::post("/ajouterEvenement",[EvenementController::class,"store"]);
@@ -68,6 +70,8 @@ Route::post('/modifierEvenement/{evenement}', [EvenementController::class,"updat
 Route::get('/faireReservation/{evenement}',[ReservationController::class,"create"]);
 
 Route::post('/faireReservation/{evenement}',[ReservationController::class,"store"]);
+
+Route::get('/cloturer/{evenement}',[EvenementController::class,"cloturer"]);
 
 
 

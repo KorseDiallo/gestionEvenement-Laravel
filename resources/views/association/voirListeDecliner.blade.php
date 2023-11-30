@@ -12,7 +12,7 @@
     
     <div class="text-gray-900 bg-gray-200">
         <div class="p-4 flex">
-            <h1 class="text-3xl">Liste Des Reservations</h1>
+            <h1 class="text-3xl">Liste Des Reservations Décliner</h1>
         </div>
         <div class="px-3 py-4 flex justify-center">
             <table class="w-full text-md bg-white shadow-md rounded mb-4">
@@ -21,7 +21,6 @@
                         <th class="text-left p-3 px-5">Nom</th>
                         <th class="text-left p-3 px-5">Prenom </th>
                         <th class="text-left p-3 px-5">Date Reservation</th>
-                        <th class="text-left p-3 px-5">Action</th>
                     </tr>
                     @foreach($reservations as $reservation)
                         <tr class="border-b hover:bg-orange-100 bg-gray-100">
@@ -34,15 +33,6 @@
                             <td class="p-3 px-5">
                                 {{ $reservation->created_at->format('Y-m-d H:i:s') }} 
                             </td>
-                            @if($reservation->est_reserver=="oui")
-                            <td class="p-3 px-5 flex justify-end">
-                                <a href="/declineReservation/{{$reservation->id}}">
-                                    <button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                        Decliner Reservation
-                                    </button>
-                                </a>
-                            </td>
-                            @endif
                         </tr>
                     @endforeach
                 </tbody>

@@ -78,7 +78,8 @@ class AssociationController extends Controller
     }
 
     public function declinerReservation(){
-        $reservations= Reservation::all();
+        // $reservations= Reservation::all();
+        $reservations = Reservation::where("est_reserver", "oui")->get();
         return view("association.declinerReservation",compact('reservations'));
     }
 
@@ -88,6 +89,11 @@ class AssociationController extends Controller
         $reservation->est_reserver="non";
 
         $reservation->update();
+    }
+
+    public function voirListeDecliner(){
+        $reservations = Reservation::where("est_reserver", "non")->get();
+        return view("association.voirListeDecliner",compact('reservations'));
     }
 
    
