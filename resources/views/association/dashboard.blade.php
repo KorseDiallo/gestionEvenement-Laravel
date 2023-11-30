@@ -93,11 +93,13 @@
                                 Modifier
                             </button>
                             </a>
+                            @if($evenement->est_cloturer!="oui")
                             <a href="/cloturer/{{$evenement->id}}">
                                 <button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                     Cloturer
                                 </button>
                                 </a>
+                            @endif
                             <a href="/supprimerEvenement/{{$evenement->id}}">
                             <button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                 Supprimer
