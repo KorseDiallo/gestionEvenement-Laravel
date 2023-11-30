@@ -9,7 +9,7 @@
 </head>
 <h1>Inscription</h1>
 <body class="d-flex justify-content-center align-items-center vh-100">
-    <form method="POST" action="/formulaireInscriptionAssociation" class="p-3 border rounded">
+    <form method="POST" action="/formulaireInscriptionAssociation" class="p-3 border rounded" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Nom</label>
@@ -29,7 +29,7 @@
         </div>
         <div class="mb-3">
             <label for="telephone" class="form-label">Logo</label>
-            <input type="tel" class="form-control" name="logo" id="telephone" aria-describedby="emailHelp">
+            <input type="file" class="form-control" name="logo" id="telephone" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="telephone" class="form-label">Date Creation</label>

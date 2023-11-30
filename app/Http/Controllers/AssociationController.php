@@ -40,11 +40,18 @@ class AssociationController extends Controller
            
         // ]);
 
+        $fileName = time() . "." . $request->logo->extension();
+        $image= $request->logo->storeAs(
+            'images',
+            $fileName,
+            'public'
+        );
+
         $association = Association::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'slogan' => $request->slogan,
+            'slogan' => $image,
             'logo' => $request->logo,
             'dateCreation' => $request->datecreation,
            
