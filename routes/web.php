@@ -64,6 +64,9 @@ Route::post('/modifierEvenement/{evenement}', [EvenementController::class,"updat
 
 Route::get('/faireReservation/{evenement}',[ReservationController::class,"create"]);
 
+Route::post('/faireReservation/{evenement}',[ReservationController::class,"store"]);
+
+
 
 // Route::middleware(['auth'])->group(function () {
     

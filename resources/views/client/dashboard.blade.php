@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    {{-- <form action="{{route('logout')}}" method="POST">
+    <form action="{{route('logout')}}" method="POST">
         @csrf
         <input type="submit" value="Se Deconnecter">
-    </form> --}}
+    </form>
    
     <h1>Client connecté</h1>
     <div class="d-flex flex-row">
