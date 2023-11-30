@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Association;
 use App\Models\Evenement;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -74,6 +75,19 @@ class AssociationController extends Controller
         }
 
        
+    }
+
+    public function declinerReservation(){
+        $reservations= Reservation::all();
+        return view("association.declinerReservation",compact('reservations'));
+    }
+
+    public function declineReservation(Reservation $reservation){
+        // dd($reservation);
+
+        $reservation->est_reserver="non";
+
+        $reservation->update();
     }
 
    

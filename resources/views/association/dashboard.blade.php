@@ -31,7 +31,7 @@
             <nav>
                 <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                     <li><a class="md:p-4 py-3 px-0 block" href="/ajouterEvenement">Ajouter Un Evenement</a></li>
-                    <li><a class="md:p-4 py-3 px-0 block" href="#">Liste Inscrits</a></li>
+                    <li><a class="md:p-4 py-3 px-0 block" href="/declinerReservation">Liste Inscrits</a></li>
                     <li><a class="md:p-4 py-3 px-0 block" href="#">Liste Accepter</a></li>
                     <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="#">Contact Us</a></li>
                 </ul>

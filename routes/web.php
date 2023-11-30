@@ -51,6 +51,9 @@ Route::get('/formulaireConnexionAssociation', [AssociationController::class,"ind
 
 Route::post('/connextionAssoc', [AssociationController::class,"logginAssoc"]);
 
+Route::get('/declinerReservation',[AssociationController::class,"declinerReservation"]);
+
+Route::get('/declineReservation/{reservation}',[AssociationController::class,"declineReservation"]);
 
 Route::get('/ajouterEvenement', [EvenementController::class,"create"]);
 
