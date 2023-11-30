@@ -75,7 +75,8 @@ class EvenementController extends Controller
      */
     public function edit(Evenement $evenement)
     {
-        //
+        
+        return view("association.modifierEvenement",compact("evenement"));
     }
 
     /**
@@ -83,7 +84,34 @@ class EvenementController extends Controller
      */
     public function update(Request $request, Evenement $evenement)
     {
-        //
+        $rules = [
+            'libelle' => 'required|string|max:255',
+            'dateLimite' => 'required|date',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'cloturer' => 'required|in:oui,non',
+            'dateEvenement' => 'required|date',
+        ];
+
+        $fileName = time() . "." . $request->image->extension();
+        $image= $request->image->storeAs(
+            'images',
+            $fileName,
+            'public'
+        );
+
+        $request->validate($rules);
+
+        $evenement->libelle= $request->libelle;
+        $evenement->image_mise_en_avant= $image;
+        $evenement->description= $request->description;
+        $evenement->date_limite_inscription= $request->dateLimite;
+        $evenement->est_cloturer= $request->cloturer;
+        $evenement->date_evenement= $request->dateEvenement; 
+        $evenement->association_id= Auth::guard("association")->id(); 
+
+        $evenement->update();
+       
     }
 
     /**
