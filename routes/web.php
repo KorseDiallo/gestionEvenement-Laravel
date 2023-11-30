@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $evenements= Evenement::all();
+     $evenements= Evenement::where("est_cloturer","non")->get();
     return view('client.dashboard',compact('evenements'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
