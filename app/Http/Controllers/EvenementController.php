@@ -116,7 +116,7 @@ class EvenementController extends Controller
         $evenement->association_id= Auth::guard("association")->id(); 
 
         $evenement->update();
-       
+         // return redirect("/connextionAssoc");
     }
 
     /**

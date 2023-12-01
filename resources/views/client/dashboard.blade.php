@@ -7,12 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{route('logout')}}" method="POST">
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand">Navbar</a>
+      <a class="navbar-brand"></a>
+      <a class="navbar-brand"></a>
+      <a class="navbar-brand"></a>
+      <form action="{{route('logout')}}" method="POST">
         @csrf
         <input type="submit" value="Se Deconnecter">
     </form>
+      
+    </div>
+  </nav> 
    
-    <h1>Client connecté</h1>
     <div class="d-flex flex-row">
     @foreach($evenements as $evenement)
     <div class="card" style="width: 18rem; margin-right: 10px; margin-bottom: 10px;">
