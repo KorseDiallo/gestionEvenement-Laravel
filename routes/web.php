@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $evenements= Evenement::where("est_cloturer","non")->get();
+    return view('welcome',compact('evenements'));
 });
 
 Route::get('/dashboard', function () {
