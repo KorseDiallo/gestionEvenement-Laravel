@@ -56,7 +56,7 @@ class EvenementController extends Controller
         $evenement->date_evenement= $request->dateEvenement; 
         $evenement->association_id= Auth::guard("association")->id(); 
         $evenement->save();
-      
+        // return redirect("/connextionAssoc");
 
         // try {
         //     // Votre code pour créer un nouvel événement
