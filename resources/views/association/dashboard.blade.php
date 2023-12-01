@@ -13,7 +13,7 @@
     <!-- debut Navbar -->
     <header class="lg:px-16 px-4 bg-white flex flex-wrap items-center py-4 shadow-md">
         <div class="flex-1 flex justify-between items-center">
-            <a href="#" class="text-xl">Company</a>
+            <a href="#" class="text-xl">DigitEvent</a>
             {{-- @if($a->image_mise_en_avant)
             <img src="{{ Storage::url($evenement->image_mise_en_avant) }}" alt="Image Mise en Avant" style="width: 50px;">
             @endif --}}
