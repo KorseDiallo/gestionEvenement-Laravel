@@ -56,7 +56,16 @@ class EvenementController extends Controller
         $evenement->date_evenement= $request->dateEvenement; 
         $evenement->association_id= Auth::guard("association")->id(); 
         $evenement->save();
-           
+      
+
+        // try {
+        //     // Votre code pour créer un nouvel événement
+        //     $evenement->save();
+        
+        //     return redirect("/dashboard")->with('success', 'Événement créé avec succès!');
+        // } catch (\Exception $e) {
+        //     return redirect("/dashboard")->with('error', 'Une erreur est survenue lors de la création de l\'événement.');
+        // }
     
     }
 
